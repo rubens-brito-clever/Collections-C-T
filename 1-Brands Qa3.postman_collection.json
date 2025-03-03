@@ -1,0 +1,2174 @@
+{
+	"info": {
+		"_postman_id": "11720de8-b271-4ca5-81ac-23547993f948",
+		"name": "1-Brands Qa3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14236115",
+		"_collection_link": "https://gold-meteor-468773.postman.co/workspace/Clever-Corporate~655b6d70-b368-4e12-b7df-5c76f4e7a69a/collection/14236115-11720de8-b271-4ca5-81ac-23547993f948?action=share&source=collection_link&creator=14236115"
+	},
+	"item": [
+		{
+			"name": "List all brands - Schema Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"List all brands - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Exemplo de schema esperado\r",
+							"const schema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"data\": {\r",
+							"            \"type\": \"array\",\r",
+							"            \"items\": {\r",
+							"                \"type\": \"object\",\r",
+							"                \"properties\": {\r",
+							"                    \"id\": { \"type\": \"integer\" },\r",
+							"                    \"name\": { \"type\": \"string\" },\r",
+							"                    \"is_favorite\": { \"type\": \"integer\" },\r",
+							"                    \"is_account_base_url_tracker\": { \"type\": \"integer\" },\r",
+							"                    \"is_tracker_backoffice_device_code\": { \"type\": \"integer\" },\r",
+							"                    \"is_tracker_backoffice_vertical\": { \"type\": \"integer\" }\r",
+							"                },\r",
+							"                \"required\": [\"id\", \"name\", \"is_favorite\", \"is_account_base_url_tracker\", \"is_tracker_backoffice_device_code\", \"is_tracker_backoffice_vertical\"]\r",
+							"            }\r",
+							"        }\r",
+							"    },\r",
+							"    \"required\": [\"data\"]\r",
+							"};\r",
+							"\r",
+							"// Validação do schema\r",
+							"pm.test(\"List all brands - Schema Test\", function() {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer W3sidGl0bGUiOiJEYXNoYm9hcmQiLCJpY29uIjoiaWNvbi1ob21lNCBtci0xIiwicm91dGUiOiIvIiwiY29udHJvbGxlciI6ImluZGV4IiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiUHVibGlzaGVycyIsImljb24iOiJmYXIgZmEtZG90LWNpcmNsZSBtci0xIiwicm91dGUiOiIjIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsLCJzdWJJdGVtcyI6W3sidGl0bGUiOiJOZXciLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9sZWFkcy9uZXciLCJjb250cm9sbGVyIjoibGVhZHMiLCJhY3Rpb24iOiJuZXcifSx7InRpdGxlIjoiTGlzdCIsImljb24iOm51bGwsInJvdXRlIjoiL2xlYWRzL2luZGV4IiwiY29udHJvbGxlciI6ImxlYWRzIiwiYWN0aW9uIjoiaW5kZXgifSx7InRpdGxlIjoiUmV0cnkiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9sZWFkcy9yZXRyeSIsImNvbnRyb2xsZXIiOiJsZWFkcyIsImFjdGlvbiI6InJldHJ5In0seyJ0aXRsZSI6IkV4dGVuc2lvbiIsImljb24iOm51bGwsInJvdXRlIjoiL2xlYWRzL2V4dGVuc2lvbnMiLCJjb250cm9sbGVyIjoibGVhZHMiLCJhY3Rpb24iOiJleHRlbnNpb25zTG9ncyJ9LHsidGl0bGUiOiJDb2RlcyAmIFRyYWNrZXJzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvY29kZXMiLCJjb250cm9sbGVyIjoiaW5kZXgiLCJhY3Rpb24iOiJjb2RlcyJ9LHsidGl0bGUiOiJGYXN0IFBheW1lbnQgUmVxdWVzdCIsImljb24iOm51bGwsInJvdXRlIjoiL2Zhc3RfcGF5bWVudF9yZXF1ZXN0IiwiY29udHJvbGxlciI6ImZpbmFuY2UiLCJhY3Rpb24iOiJmYXN0UGF5bWVudFJlcXVlc3QifV19LHsidGl0bGUiOiJBcHBzICYgRG9tYWlucyIsImljb24iOiJtaS1kZXNrdG9wLXdpbmRvd3MgbXItMSIsInJvdXRlIjoiIyIsImNvbnRyb2xsZXIiOm51bGwsImFjdGlvbiI6bnVsbCwic3ViSXRlbXMiOlt7InRpdGxlIjoiTGlzdCIsImljb24iOm51bGwsInJvdXRlIjoiL2RvbWFpbnMiLCJjb250cm9sbGVyIjoiZG9tYWlucyIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IkJsb2NrbGlzdCBUeXBlIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZG9tYWlucy9ibGFja2xpc3QvdHlwZXMiLCJjb250cm9sbGVyIjoiZG9tYWluc19ibGFja2xpc3RfdHlwZXMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJCbG9ja2xpc3QgVXBsb2FkIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZG9tYWlucy9ibGFja2xpc3QvdXBsb2FkIiwiY29udHJvbGxlciI6ImRvbWFpbnNfdXBsb2FkX2JsYWNrbGlzdHMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJQdXJnZSBFeGNlcHRpb24iLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9kb21haW5zL3B1cmdlL2V4Y2VwdGlvbnMiLCJjb250cm9sbGVyIjoiZG9tYWluc19wdXJnZV9leGNlcHRpb25zIiwiYWN0aW9uIjpudWxsfV19LHsidGl0bGUiOiJGQVEiLCJpY29uIjoiZmFyIGZhLXF1ZXN0aW9uLWNpcmNsZSBtci0xIiwicm91dGUiOiIjIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsLCJzdWJJdGVtcyI6W3sidGl0bGUiOiJMaXN0IiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZmFxcyIsImNvbnRyb2xsZXIiOiJmYXFzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiQ2F0ZWdvcnkiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9mYXFzL2NhdGVnb3JpZXMiLCJjb250cm9sbGVyIjoiZmFxc19jYXRlZ29yaWVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiU2V0dGluZ3MiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9mYXFzL3NldHRpbmdzIiwiY29udHJvbGxlciI6ImZhcXMiLCJhY3Rpb24iOiJzZXR0aW5ncyJ9XX0seyJ0aXRsZSI6IkJyYW5kcyAmIEFjY291bnRzIiwiaWNvbiI6ImZhcyBmYS1zaGllbGQtYWx0IG1yLTEiLCJyb3V0ZSI6IiMiLCJjb250cm9sbGVyIjpudWxsLCJhY3Rpb24iOm51bGwsInN1Ykl0ZW1zIjpbeyJ0aXRsZSI6IlRpZXJzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvYnJhbmRzL3RpZXJzIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiQnJhbmRzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvYnJhbmRzIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiQ3JlYXRpdmVzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvY3JlYXRpdmVzLzJfMCIsImNvbnRyb2xsZXIiOiJpbmRleCIsImFjdGlvbiI6InJlZGlyZWN0In0seyJ0aXRsZSI6IkNQUCIsImljb24iOm51bGwsInJvdXRlIjoiL2JyYW5kcy9jb3N0LXBlci1wbGF5ZXIiLCJjb250cm9sbGVyIjpudWxsLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJGb3JtYXRzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZm9ybWF0cy8yXzAiLCJjb250cm9sbGVyIjoiaW5kZXgiLCJhY3Rpb24iOiJyZWRpcmVjdCJ9LHsidGl0bGUiOiJUcmFja2VycyBCYWNrb2ZmaWNlIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvYnJhbmRzL3RyYWNrZXJzX2JhY2tvZmZpY2UiLCJjb250cm9sbGVyIjoiaW5kZXgiLCJhY3Rpb24iOiJ0cmFja2Vyc0JhY2tvZmZpY2UifV19LHsidGl0bGUiOiJGaW5hbmNlIiwiaWNvbiI6ImZhcyBmYS1sYW5kbWFyayBtci0xIiwicm91dGUiOiIjIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsLCJzdWJJdGVtcyI6W3sidGl0bGUiOiJQYXltZW50IFJlcXVlc3QiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9zdXBwbGllcnMvcGF5bWVudHMvcmVxdWVzdHMiLCJjb250cm9sbGVyIjoic3VwcGxpZXJzX3BheW1lbnRzX3JlcXVlc3RzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiU3VwcGxpZXIiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9zdXBwbGllcnMiLCJjb250cm9sbGVyIjoiZmluYW5jZSIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IlBheW1lbnQgU3RhdHVzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvcGF5bWVudHMvc3RhdHVzZXMiLCJjb250cm9sbGVyIjoicGF5bWVudHNfc3RhdHVzZXMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJQYXltZW50IFR5cGUiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9wYXltZW50cy90eXBlcyIsImNvbnRyb2xsZXIiOiJwYXltZW50c190eXBlcyIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IlNlcnZpY2UgVHlwZSIsImljb24iOm51bGwsInJvdXRlIjoiL3NlcnZpY2VzL3R5cGVzIiwiY29udHJvbGxlciI6InNlcnZpY2VzX3R5cGVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiU3VwcGxpZXIgVHlwZSIsImljb24iOm51bGwsInJvdXRlIjoiL3N1cHBsaWVycy90eXBlcyIsImNvbnRyb2xsZXIiOiJzdXBwbGllcnNfdHlwZXMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJFbnRpdHkiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9lbnRpdGllcyIsImNvbnRyb2xsZXIiOiJlbnRpdGllcyIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IkNvc3QgQ2VudGVycyIsImljb24iOm51bGwsInJvdXRlIjoiL2Nvc3QvY2VudGVycyIsImNvbnRyb2xsZXIiOiJjb3N0X2NlbnRlcnMiLCJhY3Rpb24iOiJpbmRleCJ9LHsidGl0bGUiOiJJbnRlZ3JhdGlvbiBSZXBvcnQiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9zYWdlLWludGVncmF0aW9uLWxvZ3MiLCJjb250cm9sbGVyIjoiaW5kZXgiLCJhY3Rpb24iOiJzYWdlSW50ZWdyYXRpb25Mb2dzIn1dfSx7InRpdGxlIjoiR3VpZGVsaW5lIiwiaWNvbiI6ImZhcyBmYS10YXNrcyBtci0xIiwicm91dGUiOiIjIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsLCJzdWJJdGVtcyI6W3sidGl0bGUiOiJBcHByb3ZhbHMiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9hcHByb3ZhbHMiLCJjb250cm9sbGVyIjoiYXBwcm92YWxzIiwiYWN0aW9uIjoiY29uc3VsdCJ9LHsidGl0bGUiOiJFeHRlbnNpb25zIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZXh0ZW5zaW9ucyIsImNvbnRyb2xsZXIiOiJleHRlbnNpb25zIiwiYWN0aW9uIjoiY29uc3VsdCJ9LHsidGl0bGUiOiJGb3JtYXRzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZm9ybWF0cyIsImNvbnRyb2xsZXIiOiJmb3JtYXRzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiR0RQUiIsImljb24iOm51bGwsInJvdXRlIjoiL2dkcHIiLCJjb250cm9sbGVyIjoiZ2RwciIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IkhSIFByb2NlZHVyZXMiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9ocl9wcm9jZWR1cmVzIiwiY29udHJvbGxlciI6ImhyX3Byb2NlZHVyZXMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJJVCBQcm9jZWR1cmVzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvaXQtcHJvY2VkdXJlcyIsImNvbnRyb2xsZXIiOiJpdF9wcm9jZWR1cmVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiUGF5bWVudCBSZXF1ZXN0IiwiaWNvbiI6bnVsbCwicm91dGUiOiIvcGF5bWVudC1yZXF1ZXN0IiwiY29udHJvbGxlciI6InBheW1lbnRfcmVxdWVzdF9ydWxlcyIsImFjdGlvbiI6ImNvbnN1bHQifSx7InRpdGxlIjoiVHJhZmZpYyIsImljb24iOm51bGwsInJvdXRlIjoiL3RyYWZmaWMiLCJjb250cm9sbGVyIjoidHJhZmZpYyIsImFjdGlvbiI6ImNvbnN1bHQifSx7InRpdGxlIjoiTWVkaWEgQnV5aW5nIE9wZXJhdGlvbnMiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9ndWlkZXMiLCJjb250cm9sbGVyIjoiZ3VpZGVzIiwiYWN0aW9uIjoiaW5kZXgifV19LHsidGl0bGUiOiJTb2NpYWwiLCJpY29uIjoiaWNvbi1idWJibGVzNCBtci0xIiwicm91dGUiOiIjIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsLCJzdWJJdGVtcyI6W3sidGl0bGUiOiJFdmVudCIsImljb24iOm51bGwsInJvdXRlIjoiIyIsImNvbnRyb2xsZXIiOm51bGwsImFjdGlvbiI6bnVsbCwic3ViSXRlbXMiOlt7InRpdGxlIjoiTGlzdCIsImljb24iOm51bGwsInJvdXRlIjoiL2V2ZW50cy9pbmRleCIsImNvbnRyb2xsZXIiOiJldmVudHMiLCJhY3Rpb24iOiJpbmRleCJ9LHsidGl0bGUiOiJUYWdzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvdGFncy9pbmRleCIsImNvbnRyb2xsZXIiOiJ0YWdzIiwiYWN0aW9uIjpudWxsfV19LHsidGl0bGUiOiJNZXNzYWdlcyIsImljb24iOm51bGwsInJvdXRlIjoiIyIsImNvbnRyb2xsZXIiOm51bGwsImFjdGlvbiI6bnVsbCwic3ViSXRlbXMiOlt7InRpdGxlIjoiSW5ib3giLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9tZXNzYWdlcy92aWV3ZXJzIiwiY29udHJvbGxlciI6Im1lc3NhZ2VzX3ZpZXdlcnMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJTZW50IiwiaWNvbiI6bnVsbCwicm91dGUiOiIvbWVzc2FnZXMiLCJjb250cm9sbGVyIjoibWVzc2FnZXMiLCJhY3Rpb24iOm51bGx9XX1dfSx7InRpdGxlIjoiQ29uZmlndXJhdGlvbiIsImljb24iOiJpY29uLWdlYXIgbXItMSIsInJvdXRlIjoiIyIsImNvbnRyb2xsZXIiOm51bGwsImFjdGlvbiI6bnVsbCwic3ViSXRlbXMiOlt7InRpdGxlIjoiQkkgQmFja29mZmljZSIsImljb24iOm51bGwsInJvdXRlIjoiIyIsImNvbnRyb2xsZXIiOm51bGwsImFjdGlvbiI6bnVsbCwic3ViSXRlbXMiOlt7InRpdGxlIjoiIEJlbmVmaXRzIC8gRW1wbG95ZXJzIEFzc29jaWF0aW9uIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvYmkvYmFja29mZmljZS90eXBlc1VzZXJzQXNzb2NpYXRpb24iLCJjb250cm9sbGVyIjoiYmlfYmFja29mZmljZSIsImFjdGlvbiI6InR5cGVzVXNlcnNBc3NvY2lhdGlvbiJ9XX0seyJ0aXRsZSI6IkNvbnRhY3QgVHlwZSIsImljb24iOm51bGwsInJvdXRlIjoiL2NvbnRhY3RzL3R5cGVzIiwiY29udHJvbGxlciI6ImNvbnRhY3RzX3R5cGVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiQ291bnRyeSIsImljb24iOm51bGwsInJvdXRlIjoiL2NvdW50cmllcyIsImNvbnRyb2xsZXIiOiJjb3VudHJpZXMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJDdXJyZW5jeSIsImljb24iOm51bGwsInJvdXRlIjoiL2N1cnJlbmNpZXMiLCJjb250cm9sbGVyIjoiY3VycmVuY2llcyIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IkVtYWlsIFRlbXBsYXRlIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZW1haWxzL3RlbXBsYXRlcyIsImNvbnRyb2xsZXIiOiJlbWFpbHNfdGVtcGxhdGVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiR2xvYmFsIFBhcmFtZXRlcnMiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9nbG9iYWxfcGFyYW1ldGVycyIsImNvbnRyb2xsZXIiOiJnbG9iYWxfcGFyYW1ldGVycyIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6Ik1lc3NhZ2UgU3ViamVjdCIsImljb24iOm51bGwsInJvdXRlIjoiL3N1YmplY3RzX3R5cGVzIiwiY29udHJvbGxlciI6InN1YmplY3RzX3R5cGVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiUG9zaXRpb24iLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9wb3NpdGlvbnMiLCJjb250cm9sbGVyIjoicG9zaXRpb25zIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiUmVnaW9uIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvcmVnaW9ucyIsImNvbnRyb2xsZXIiOiJyZWdpb25zIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiU3VwcG9ydCIsImljb24iOm51bGwsInJvdXRlIjoiL3N1cHBvcnQvbGVhZHMiLCJjb250cm9sbGVyIjoic3VwcG9ydCIsImFjdGlvbiI6ImxlYWRzIn0seyJ0aXRsZSI6IlRlYW0iLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9jb21wYW5pZXMiLCJjb250cm9sbGVyIjoiY29tcGFuaWVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiVXNlciIsImljb24iOm51bGwsInJvdXRlIjoiL3VzZXJzIiwiY29udHJvbGxlciI6InVzZXJzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiVXNlciBEZWZhdWx0IFBlcm1pc3Npb24iLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii91c2Vycy9wZXJtaXNzaW9ucy9kZWZhdWx0IiwiY29udHJvbGxlciI6InVzZXJzX2RlZmF1bHRfcGVybWlzc2lvbnMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJVc2VycyBQZXJtaXNzaW9uIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvdXNlcnMvcGVybWlzc2lvbnMiLCJjb250cm9sbGVyIjoidXNlcnNfcGVybWlzc2lvbnMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJWZXJzaW9ucyIsImljb24iOm51bGwsInJvdXRlIjoiL3ZlcnNpb25zIiwiY29udHJvbGxlciI6InZlcnNpb25zIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiVmVyc2lvbiIsImljb24iOm51bGwsInJvdXRlIjoiL3BkZnZlcnNpb24iLCJjb250cm9sbGVyIjoicGRmX3ZlcnNpb24iLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJQbGF0Zm9ybXMiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9wbGF0Zm9ybXMiLCJjb250cm9sbGVyIjoicGxhdGZvcm0iLCJhY3Rpb24iOiJpbmRleCJ9XX1d"
+					}
+				],
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://brands-api-qa3.clevercorporate.com/v1/brands\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1180/CT-1181 - Create new brand",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"brandId\", jsonData.data.id);\r",
+							"\r",
+							"\r",
+							"pm.test(\"Create new brand - Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Create new brand - schema test\", function () {\r",
+							"    pm.response.to.have.jsonSchema({\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            data: {\r",
+							"                type: \"object\",\r",
+							"                properties: {\r",
+							"                    id: { type: \"number\" },\r",
+							"                    name: { type: \"string\" },\r",
+							"                    technical_name: { type: \"string\" },\r",
+							"                    is_favorite: { type: \"number\" },\r",
+							"                    is_account_base_url_tracker: { type: \"number\" },\r",
+							"                    is_tracker_backoffice_device_code: { type: \"number\" },\r",
+							"                    is_tracker_backoffice_vertical: { type: \"number\" },\r",
+							"                    created_at: { type: \"string\" }\r",
+							"                },\r",
+							"                required: [\"id\", \"name\", \"technical_name\", \"is_favorite\", \"is_account_base_url_tracker\", \"is_tracker_backoffice_device_code\", \"is_tracker_backoffice_vertical\", \"created_at\"]\r",
+							"            }\r",
+							"        },\r",
+							"        required: [\"data\"]\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//Variables to be use in the next requests\r",
+							"\r",
+							"\r",
+							"pm.environment.set(\"randomBrandName\", pm.variables.replaceIn('{{$randomCity}}'+' QA'));\r",
+							"\r",
+							"pm.environment.set(\"variable_key\", \"variable_value\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{randomBrandName}}\",\r\n    \"is_favorite\": 1,\r\n    \"is_account_base_url_tracker\": 1,\r\n    \"is_tracker_backoffice_device_code\": 1,\r\n    \"is_tracker_backoffice_vertical\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"https://brands-api-qa3.clevercorporate.com/v1/brands\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\" -H  \"Content-Type: application/json\" -d \"{\\\"name\\\":\\\"Bet 365\\\",\\\"is_favorite\\\":1,\\\"is_account_base_url_tracker\\\":1,\\\"is_tracker_backoffice_device_code\\\":0,\\\"is_tracker_backoffice_vertical\\\":1}\""
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1182 - Create new brand -  Negativo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Create new brand - Status code is 409 - Negativo\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Create new brand - Status code is 409 - There is already this technical name\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"There is already this technical name\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{randomBrandName}}\",\r\n    \"is_favorite\": 1,\r\n    \"is_account_base_url_tracker\": 1,\r\n    \"is_tracker_backoffice_device_code\": 0,\r\n    \"is_tracker_backoffice_vertical\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"https://brands-api-qa3.clevercorporate.com/v1/brands\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\" -H  \"Content-Type: application/json\" -d \"{\\\"name\\\":\\\"Bet 365\\\",\\\"is_favorite\\\":1,\\\"is_account_base_url_tracker\\\":1,\\\"is_tracker_backoffice_device_code\\\":0,\\\"is_tracker_backoffice_vertical\\\":1}\""
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1183 - List all brands - Schema Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"List all brands - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate the New Brand Created\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data.some(brand => brand.name === pm.environment.get('randomBrandName'))).to.be.true;\r",
+							"});\r",
+							"\r",
+							"// Exemplo de schema esperado\r",
+							"const schema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"data\": {\r",
+							"            \"type\": \"array\",\r",
+							"            \"items\": {\r",
+							"                \"type\": \"object\",\r",
+							"                \"properties\": {\r",
+							"                    \"id\": { \"type\": \"integer\" },\r",
+							"                    \"name\": { \"type\": \"string\" },\r",
+							"                    \"is_favorite\": { \"type\": \"integer\" },\r",
+							"                    \"is_account_base_url_tracker\": { \"type\": \"integer\" },\r",
+							"                    \"is_tracker_backoffice_device_code\": { \"type\": \"integer\" },\r",
+							"                    \"is_tracker_backoffice_vertical\": { \"type\": \"integer\" }\r",
+							"                },\r",
+							"                \"required\": [\"id\", \"name\", \"is_favorite\", \"is_account_base_url_tracker\", \"is_tracker_backoffice_device_code\", \"is_tracker_backoffice_vertical\"]\r",
+							"            }\r",
+							"        }\r",
+							"    },\r",
+							"    \"required\": [\"data\"]\r",
+							"};\r",
+							"\r",
+							"// Validação do schema\r",
+							"pm.test(\"List all brands - Schema Test\", function() {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer W3sidGl0bGUiOiJEYXNoYm9hcmQiLCJpY29uIjoiaWNvbi1ob21lNCBtci0xIiwicm91dGUiOiIvIiwiY29udHJvbGxlciI6ImluZGV4IiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiUHVibGlzaGVycyIsImljb24iOiJmYXIgZmEtZG90LWNpcmNsZSBtci0xIiwicm91dGUiOiIjIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsLCJzdWJJdGVtcyI6W3sidGl0bGUiOiJOZXciLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9sZWFkcy9uZXciLCJjb250cm9sbGVyIjoibGVhZHMiLCJhY3Rpb24iOiJuZXcifSx7InRpdGxlIjoiTGlzdCIsImljb24iOm51bGwsInJvdXRlIjoiL2xlYWRzL2luZGV4IiwiY29udHJvbGxlciI6ImxlYWRzIiwiYWN0aW9uIjoiaW5kZXgifSx7InRpdGxlIjoiUmV0cnkiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9sZWFkcy9yZXRyeSIsImNvbnRyb2xsZXIiOiJsZWFkcyIsImFjdGlvbiI6InJldHJ5In0seyJ0aXRsZSI6IkV4dGVuc2lvbiIsImljb24iOm51bGwsInJvdXRlIjoiL2xlYWRzL2V4dGVuc2lvbnMiLCJjb250cm9sbGVyIjoibGVhZHMiLCJhY3Rpb24iOiJleHRlbnNpb25zTG9ncyJ9LHsidGl0bGUiOiJDb2RlcyAmIFRyYWNrZXJzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvY29kZXMiLCJjb250cm9sbGVyIjoiaW5kZXgiLCJhY3Rpb24iOiJjb2RlcyJ9LHsidGl0bGUiOiJGYXN0IFBheW1lbnQgUmVxdWVzdCIsImljb24iOm51bGwsInJvdXRlIjoiL2Zhc3RfcGF5bWVudF9yZXF1ZXN0IiwiY29udHJvbGxlciI6ImZpbmFuY2UiLCJhY3Rpb24iOiJmYXN0UGF5bWVudFJlcXVlc3QifV19LHsidGl0bGUiOiJBcHBzICYgRG9tYWlucyIsImljb24iOiJtaS1kZXNrdG9wLXdpbmRvd3MgbXItMSIsInJvdXRlIjoiIyIsImNvbnRyb2xsZXIiOm51bGwsImFjdGlvbiI6bnVsbCwic3ViSXRlbXMiOlt7InRpdGxlIjoiTGlzdCIsImljb24iOm51bGwsInJvdXRlIjoiL2RvbWFpbnMiLCJjb250cm9sbGVyIjoiZG9tYWlucyIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IkJsb2NrbGlzdCBUeXBlIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZG9tYWlucy9ibGFja2xpc3QvdHlwZXMiLCJjb250cm9sbGVyIjoiZG9tYWluc19ibGFja2xpc3RfdHlwZXMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJCbG9ja2xpc3QgVXBsb2FkIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZG9tYWlucy9ibGFja2xpc3QvdXBsb2FkIiwiY29udHJvbGxlciI6ImRvbWFpbnNfdXBsb2FkX2JsYWNrbGlzdHMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJQdXJnZSBFeGNlcHRpb24iLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9kb21haW5zL3B1cmdlL2V4Y2VwdGlvbnMiLCJjb250cm9sbGVyIjoiZG9tYWluc19wdXJnZV9leGNlcHRpb25zIiwiYWN0aW9uIjpudWxsfV19LHsidGl0bGUiOiJGQVEiLCJpY29uIjoiZmFyIGZhLXF1ZXN0aW9uLWNpcmNsZSBtci0xIiwicm91dGUiOiIjIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsLCJzdWJJdGVtcyI6W3sidGl0bGUiOiJMaXN0IiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZmFxcyIsImNvbnRyb2xsZXIiOiJmYXFzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiQ2F0ZWdvcnkiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9mYXFzL2NhdGVnb3JpZXMiLCJjb250cm9sbGVyIjoiZmFxc19jYXRlZ29yaWVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiU2V0dGluZ3MiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9mYXFzL3NldHRpbmdzIiwiY29udHJvbGxlciI6ImZhcXMiLCJhY3Rpb24iOiJzZXR0aW5ncyJ9XX0seyJ0aXRsZSI6IkJyYW5kcyAmIEFjY291bnRzIiwiaWNvbiI6ImZhcyBmYS1zaGllbGQtYWx0IG1yLTEiLCJyb3V0ZSI6IiMiLCJjb250cm9sbGVyIjpudWxsLCJhY3Rpb24iOm51bGwsInN1Ykl0ZW1zIjpbeyJ0aXRsZSI6IlRpZXJzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvYnJhbmRzL3RpZXJzIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiQnJhbmRzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvYnJhbmRzIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiQ3JlYXRpdmVzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvY3JlYXRpdmVzLzJfMCIsImNvbnRyb2xsZXIiOiJpbmRleCIsImFjdGlvbiI6InJlZGlyZWN0In0seyJ0aXRsZSI6IkNQUCIsImljb24iOm51bGwsInJvdXRlIjoiL2JyYW5kcy9jb3N0LXBlci1wbGF5ZXIiLCJjb250cm9sbGVyIjpudWxsLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJGb3JtYXRzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZm9ybWF0cy8yXzAiLCJjb250cm9sbGVyIjoiaW5kZXgiLCJhY3Rpb24iOiJyZWRpcmVjdCJ9LHsidGl0bGUiOiJUcmFja2VycyBCYWNrb2ZmaWNlIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvYnJhbmRzL3RyYWNrZXJzX2JhY2tvZmZpY2UiLCJjb250cm9sbGVyIjoiaW5kZXgiLCJhY3Rpb24iOiJ0cmFja2Vyc0JhY2tvZmZpY2UifV19LHsidGl0bGUiOiJGaW5hbmNlIiwiaWNvbiI6ImZhcyBmYS1sYW5kbWFyayBtci0xIiwicm91dGUiOiIjIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsLCJzdWJJdGVtcyI6W3sidGl0bGUiOiJQYXltZW50IFJlcXVlc3QiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9zdXBwbGllcnMvcGF5bWVudHMvcmVxdWVzdHMiLCJjb250cm9sbGVyIjoic3VwcGxpZXJzX3BheW1lbnRzX3JlcXVlc3RzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiU3VwcGxpZXIiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9zdXBwbGllcnMiLCJjb250cm9sbGVyIjoiZmluYW5jZSIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IlBheW1lbnQgU3RhdHVzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvcGF5bWVudHMvc3RhdHVzZXMiLCJjb250cm9sbGVyIjoicGF5bWVudHNfc3RhdHVzZXMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJQYXltZW50IFR5cGUiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9wYXltZW50cy90eXBlcyIsImNvbnRyb2xsZXIiOiJwYXltZW50c190eXBlcyIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IlNlcnZpY2UgVHlwZSIsImljb24iOm51bGwsInJvdXRlIjoiL3NlcnZpY2VzL3R5cGVzIiwiY29udHJvbGxlciI6InNlcnZpY2VzX3R5cGVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiU3VwcGxpZXIgVHlwZSIsImljb24iOm51bGwsInJvdXRlIjoiL3N1cHBsaWVycy90eXBlcyIsImNvbnRyb2xsZXIiOiJzdXBwbGllcnNfdHlwZXMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJFbnRpdHkiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9lbnRpdGllcyIsImNvbnRyb2xsZXIiOiJlbnRpdGllcyIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IkNvc3QgQ2VudGVycyIsImljb24iOm51bGwsInJvdXRlIjoiL2Nvc3QvY2VudGVycyIsImNvbnRyb2xsZXIiOiJjb3N0X2NlbnRlcnMiLCJhY3Rpb24iOiJpbmRleCJ9LHsidGl0bGUiOiJJbnRlZ3JhdGlvbiBSZXBvcnQiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9zYWdlLWludGVncmF0aW9uLWxvZ3MiLCJjb250cm9sbGVyIjoiaW5kZXgiLCJhY3Rpb24iOiJzYWdlSW50ZWdyYXRpb25Mb2dzIn1dfSx7InRpdGxlIjoiR3VpZGVsaW5lIiwiaWNvbiI6ImZhcyBmYS10YXNrcyBtci0xIiwicm91dGUiOiIjIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsLCJzdWJJdGVtcyI6W3sidGl0bGUiOiJBcHByb3ZhbHMiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9hcHByb3ZhbHMiLCJjb250cm9sbGVyIjoiYXBwcm92YWxzIiwiYWN0aW9uIjoiY29uc3VsdCJ9LHsidGl0bGUiOiJFeHRlbnNpb25zIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZXh0ZW5zaW9ucyIsImNvbnRyb2xsZXIiOiJleHRlbnNpb25zIiwiYWN0aW9uIjoiY29uc3VsdCJ9LHsidGl0bGUiOiJGb3JtYXRzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZm9ybWF0cyIsImNvbnRyb2xsZXIiOiJmb3JtYXRzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiR0RQUiIsImljb24iOm51bGwsInJvdXRlIjoiL2dkcHIiLCJjb250cm9sbGVyIjoiZ2RwciIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IkhSIFByb2NlZHVyZXMiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9ocl9wcm9jZWR1cmVzIiwiY29udHJvbGxlciI6ImhyX3Byb2NlZHVyZXMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJJVCBQcm9jZWR1cmVzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvaXQtcHJvY2VkdXJlcyIsImNvbnRyb2xsZXIiOiJpdF9wcm9jZWR1cmVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiUGF5bWVudCBSZXF1ZXN0IiwiaWNvbiI6bnVsbCwicm91dGUiOiIvcGF5bWVudC1yZXF1ZXN0IiwiY29udHJvbGxlciI6InBheW1lbnRfcmVxdWVzdF9ydWxlcyIsImFjdGlvbiI6ImNvbnN1bHQifSx7InRpdGxlIjoiVHJhZmZpYyIsImljb24iOm51bGwsInJvdXRlIjoiL3RyYWZmaWMiLCJjb250cm9sbGVyIjoidHJhZmZpYyIsImFjdGlvbiI6ImNvbnN1bHQifSx7InRpdGxlIjoiTWVkaWEgQnV5aW5nIE9wZXJhdGlvbnMiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9ndWlkZXMiLCJjb250cm9sbGVyIjoiZ3VpZGVzIiwiYWN0aW9uIjoiaW5kZXgifV19LHsidGl0bGUiOiJTb2NpYWwiLCJpY29uIjoiaWNvbi1idWJibGVzNCBtci0xIiwicm91dGUiOiIjIiwiY29udHJvbGxlciI6bnVsbCwiYWN0aW9uIjpudWxsLCJzdWJJdGVtcyI6W3sidGl0bGUiOiJFdmVudCIsImljb24iOm51bGwsInJvdXRlIjoiIyIsImNvbnRyb2xsZXIiOm51bGwsImFjdGlvbiI6bnVsbCwic3ViSXRlbXMiOlt7InRpdGxlIjoiTGlzdCIsImljb24iOm51bGwsInJvdXRlIjoiL2V2ZW50cy9pbmRleCIsImNvbnRyb2xsZXIiOiJldmVudHMiLCJhY3Rpb24iOiJpbmRleCJ9LHsidGl0bGUiOiJUYWdzIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvdGFncy9pbmRleCIsImNvbnRyb2xsZXIiOiJ0YWdzIiwiYWN0aW9uIjpudWxsfV19LHsidGl0bGUiOiJNZXNzYWdlcyIsImljb24iOm51bGwsInJvdXRlIjoiIyIsImNvbnRyb2xsZXIiOm51bGwsImFjdGlvbiI6bnVsbCwic3ViSXRlbXMiOlt7InRpdGxlIjoiSW5ib3giLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9tZXNzYWdlcy92aWV3ZXJzIiwiY29udHJvbGxlciI6Im1lc3NhZ2VzX3ZpZXdlcnMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJTZW50IiwiaWNvbiI6bnVsbCwicm91dGUiOiIvbWVzc2FnZXMiLCJjb250cm9sbGVyIjoibWVzc2FnZXMiLCJhY3Rpb24iOm51bGx9XX1dfSx7InRpdGxlIjoiQ29uZmlndXJhdGlvbiIsImljb24iOiJpY29uLWdlYXIgbXItMSIsInJvdXRlIjoiIyIsImNvbnRyb2xsZXIiOm51bGwsImFjdGlvbiI6bnVsbCwic3ViSXRlbXMiOlt7InRpdGxlIjoiQkkgQmFja29mZmljZSIsImljb24iOm51bGwsInJvdXRlIjoiIyIsImNvbnRyb2xsZXIiOm51bGwsImFjdGlvbiI6bnVsbCwic3ViSXRlbXMiOlt7InRpdGxlIjoiIEJlbmVmaXRzIC8gRW1wbG95ZXJzIEFzc29jaWF0aW9uIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvYmkvYmFja29mZmljZS90eXBlc1VzZXJzQXNzb2NpYXRpb24iLCJjb250cm9sbGVyIjoiYmlfYmFja29mZmljZSIsImFjdGlvbiI6InR5cGVzVXNlcnNBc3NvY2lhdGlvbiJ9XX0seyJ0aXRsZSI6IkNvbnRhY3QgVHlwZSIsImljb24iOm51bGwsInJvdXRlIjoiL2NvbnRhY3RzL3R5cGVzIiwiY29udHJvbGxlciI6ImNvbnRhY3RzX3R5cGVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiQ291bnRyeSIsImljb24iOm51bGwsInJvdXRlIjoiL2NvdW50cmllcyIsImNvbnRyb2xsZXIiOiJjb3VudHJpZXMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJDdXJyZW5jeSIsImljb24iOm51bGwsInJvdXRlIjoiL2N1cnJlbmNpZXMiLCJjb250cm9sbGVyIjoiY3VycmVuY2llcyIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6IkVtYWlsIFRlbXBsYXRlIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvZW1haWxzL3RlbXBsYXRlcyIsImNvbnRyb2xsZXIiOiJlbWFpbHNfdGVtcGxhdGVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiR2xvYmFsIFBhcmFtZXRlcnMiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9nbG9iYWxfcGFyYW1ldGVycyIsImNvbnRyb2xsZXIiOiJnbG9iYWxfcGFyYW1ldGVycyIsImFjdGlvbiI6bnVsbH0seyJ0aXRsZSI6Ik1lc3NhZ2UgU3ViamVjdCIsImljb24iOm51bGwsInJvdXRlIjoiL3N1YmplY3RzX3R5cGVzIiwiY29udHJvbGxlciI6InN1YmplY3RzX3R5cGVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiUG9zaXRpb24iLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9wb3NpdGlvbnMiLCJjb250cm9sbGVyIjoicG9zaXRpb25zIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiUmVnaW9uIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvcmVnaW9ucyIsImNvbnRyb2xsZXIiOiJyZWdpb25zIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiU3VwcG9ydCIsImljb24iOm51bGwsInJvdXRlIjoiL3N1cHBvcnQvbGVhZHMiLCJjb250cm9sbGVyIjoic3VwcG9ydCIsImFjdGlvbiI6ImxlYWRzIn0seyJ0aXRsZSI6IlRlYW0iLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9jb21wYW5pZXMiLCJjb250cm9sbGVyIjoiY29tcGFuaWVzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiVXNlciIsImljb24iOm51bGwsInJvdXRlIjoiL3VzZXJzIiwiY29udHJvbGxlciI6InVzZXJzIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiVXNlciBEZWZhdWx0IFBlcm1pc3Npb24iLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii91c2Vycy9wZXJtaXNzaW9ucy9kZWZhdWx0IiwiY29udHJvbGxlciI6InVzZXJzX2RlZmF1bHRfcGVybWlzc2lvbnMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJVc2VycyBQZXJtaXNzaW9uIiwiaWNvbiI6bnVsbCwicm91dGUiOiIvdXNlcnMvcGVybWlzc2lvbnMiLCJjb250cm9sbGVyIjoidXNlcnNfcGVybWlzc2lvbnMiLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJWZXJzaW9ucyIsImljb24iOm51bGwsInJvdXRlIjoiL3ZlcnNpb25zIiwiY29udHJvbGxlciI6InZlcnNpb25zIiwiYWN0aW9uIjpudWxsfSx7InRpdGxlIjoiVmVyc2lvbiIsImljb24iOm51bGwsInJvdXRlIjoiL3BkZnZlcnNpb24iLCJjb250cm9sbGVyIjoicGRmX3ZlcnNpb24iLCJhY3Rpb24iOm51bGx9LHsidGl0bGUiOiJQbGF0Zm9ybXMiLCJpY29uIjpudWxsLCJyb3V0ZSI6Ii9wbGF0Zm9ybXMiLCJjb250cm9sbGVyIjoicGxhdGZvcm0iLCJhY3Rpb24iOiJpbmRleCJ9XX1d"
+					}
+				],
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://brands-api-qa3.clevercorporate.com/v1/brands\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1184 - Update a brand",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Update a brand - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    console.log(\"Validado Update Brand\")\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Update a brand - schema test\", function () {\r",
+							"    const schema = {\r",
+							"        \"type\": \"object\",\r",
+							"        \"properties\": {\r",
+							"            \"data\": {\r",
+							"                \"type\": \"object\",\r",
+							"                \"properties\": {\r",
+							"                    \"id\": { \"type\": \"number\" },\r",
+							"                    \"name\": { \"type\": \"string\" },\r",
+							"                    \"technical_name\": { \"type\": \"string\" },\r",
+							"                    \"is_favorite\": { \"type\": \"number\" },\r",
+							"                    \"is_account_base_url_tracker\": { \"type\": \"number\" },\r",
+							"                    \"is_tracker_backoffice_device_code\": { \"type\": \"number\" },\r",
+							"                    \"is_tracker_backoffice_vertical\": { \"type\": \"number\" },\r",
+							"                    \"created_at\": { \"type\": \"string\" }\r",
+							"                },\r",
+							"                \"required\": [\"id\", \"name\", \"technical_name\", \"is_favorite\", \"is_account_base_url_tracker\", \"is_tracker_backoffice_device_code\", \"is_tracker_backoffice_vertical\", \"created_at\"]\r",
+							"            }\r",
+							"        },\r",
+							"        \"required\": [\"data\"]\r",
+							"    };\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"is_favorite\": 0,\r\n    \"is_account_base_url_tracker\": 0,\r\n    \"is_tracker_backoffice_device_code\": 0,\r\n    \"is_tracker_backoffice_vertical\": 0\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/{{brandId}}",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"{{brandId}}"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT \"https://brands-api-qa3.clevercorporate.com/v1/brands/163\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\" -H  \"Content-Type: application/json\" -d \"{\\\"is_favorite\\\":0,\\\"is_account_base_url_tracker\\\":1,\\\"is_tracker_backoffice_device_code\\\":0,\\\"is_tracker_backoffice_vertical\\\":1}\""
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1185 - Update a brand - Negativo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Update a brand - Status code is 404 - Not Found\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Brand not exists\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Brand not exists\");\r",
+							"    console.log(\"Validado Update Brand, validado mensagem Brand not exists\")\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"is_favorite\": 0,\r\n    \"is_account_base_url_tracker\": 1,\r\n    \"is_tracker_backoffice_device_code\": 0,\r\n    \"is_tracker_backoffice_vertical\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/00",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"00"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT \"https://brands-api-qa3.clevercorporate.com/v1/brands/163\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\" -H  \"Content-Type: application/json\" -d \"{\\\"is_favorite\\\":0,\\\"is_account_base_url_tracker\\\":1,\\\"is_tracker_backoffice_device_code\\\":0,\\\"is_tracker_backoffice_vertical\\\":1}\""
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1186 - List All Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"List All Status - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate Status Names\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    jsonData.data.forEach(function(item) {\r",
+							"        pm.expect(item.name).to.be.oneOf([\"Inactive\", \"Active\", \"Test\"]);\r",
+							"\r",
+							"         console.log(\"Validado All Status : Inactive, Active, Test\")\r",
+							"        \r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"List All Status - Schema Test\", function () {\r",
+							"    const schema = {\r",
+							"        \"type\": \"object\",\r",
+							"        \"properties\": {\r",
+							"            \"data\": {\r",
+							"                \"type\": \"array\",\r",
+							"                \"items\": {\r",
+							"                    \"type\": \"object\",\r",
+							"                    \"properties\": {\r",
+							"                        \"id\": { \"type\": \"number\" },\r",
+							"                        \"name\": { \"type\": \"string\" }\r",
+							"                    },\r",
+							"                    \"required\": [\"id\", \"name\"]\r",
+							"                }\r",
+							"            }\r",
+							"        },\r",
+							"        \"required\": [\"data\"]\r",
+							"    };\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					}
+				],
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/status",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"status"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://brands-api-qa3.clevercorporate.com/v1/brands/status\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\""
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1187 - List all accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"List all accounts - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"    console.log(\"Validado Listar All Accounts\")\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"List all accounts - Schema validation\", function () {\r",
+							"    const statusSchema = {\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            id: { type: \"number\" },\r",
+							"            name: { type: \"string\" },\r",
+							"        },\r",
+							"        required: [\"id\", \"name\"]\r",
+							"    };\r",
+							"\r",
+							"    const accountSchema = {\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            id: { type: \"number\" },\r",
+							"            name: { type: \"string\" },\r",
+							"            login: { type: [\"string\", \"null\"] },\r",
+							"            created_at: { type: \"string\" },\r",
+							"            status: statusSchema\r",
+							"        },\r",
+							"        required: [\"id\", \"name\", \"created_at\", \"status\"]\r",
+							"    };\r",
+							"\r",
+							"    const tiersRegionsSchema = {\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            \"1\": {\r",
+							"                type: \"array\",\r",
+							"                items: {\r",
+							"                    type: \"object\",\r",
+							"                    properties: {\r",
+							"                        id: { type: \"number\" },\r",
+							"                        iso_country: { type: \"string\" },\r",
+							"                        name: { type: \"string\" },\r",
+							"                        continent_code: { type: \"string\" },\r",
+							"                        region_id: { type: \"number\" },\r",
+							"                        tier_id: { type: \"number\" }\r",
+							"                    },\r",
+							"                    required: [\"id\", \"iso_country\", \"name\", \"continent_code\", \"region_id\", \"tier_id\"]\r",
+							"                }\r",
+							"            },\r",
+							"            \"2\": {\r",
+							"                type: \"array\",\r",
+							"                items: {\r",
+							"                    type: \"object\",\r",
+							"                    properties: {\r",
+							"                        id: { type: \"number\" },\r",
+							"                        iso_country: { type: \"string\" },\r",
+							"                        name: { type: \"string\" },\r",
+							"                        continent_code: { type: \"string\" },\r",
+							"                        region_id: { type: \"number\" },\r",
+							"                        tier_id: { type: \"number\" }\r",
+							"                    },\r",
+							"                    required: [\"id\", \"iso_country\", \"name\", \"continent_code\", \"region_id\", \"tier_id\"]\r",
+							"                }\r",
+							"            },\r",
+							"            \"3\": {\r",
+							"                type: \"array\",\r",
+							"                items: {\r",
+							"                    type: \"object\",\r",
+							"                    properties: {\r",
+							"                        id: { type: \"number\" },\r",
+							"                        iso_country: { type: \"string\" },\r",
+							"                        name: { type: \"string\" },\r",
+							"                        continent_code: { type: \"string\" },\r",
+							"                        region_id: { type: \"number\" },\r",
+							"                        tier_id: { type: \"number\" }\r",
+							"                    },\r",
+							"                    required: [\"id\", \"iso_country\", \"name\", \"continent_code\", \"region_id\", \"tier_id\"]\r",
+							"                }\r",
+							"            }\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    const itemsSchema = {\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            id: { type: \"number\" },\r",
+							"            name: { type: \"string\" },\r",
+							"            logo: { type: \"string\" },\r",
+							"            is_favorite: { type: \"number\" },\r",
+							"            is_account_base_url_tracker: { type: \"number\" },\r",
+							"            is_tracker_backoffice_device_code: { type: \"number\" },\r",
+							"            is_tracker_backoffice_vertical: { type: \"number\" },\r",
+							"            updated_at: { type: \"string\" },\r",
+							"            status: statusSchema,\r",
+							"            accounts: {\r",
+							"                type: \"array\",\r",
+							"                items: accountSchema\r",
+							"            },\r",
+							"            tiersRegions: tiersRegionsSchema\r",
+							"        },\r",
+							"        required: [\r",
+							"            \"id\", \"name\", \"logo\", \"is_favorite\", \"is_account_base_url_tracker\",\r",
+							"            \"is_tracker_backoffice_device_code\", \"is_tracker_backoffice_vertical\",\r",
+							"            \"updated_at\", \"status\", \"accounts\", \"tiersRegions\"\r",
+							"        ]\r",
+							"    };\r",
+							"\r",
+							"    const schema = {\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            data: {\r",
+							"                type: \"object\",\r",
+							"                properties: {\r",
+							"                    items: {\r",
+							"                        type: \"array\",\r",
+							"                        items: itemsSchema\r",
+							"                    },\r",
+							"                    total_items: { type: \"number\" },\r",
+							"                    total_pages: { type: \"number\" },\r",
+							"                    first: { type: \"number\" },\r",
+							"                    previous: { type: \"number\" },\r",
+							"                    current: { type: \"number\" },\r",
+							"                    next: { type: \"number\" },\r",
+							"                    last: { type: \"number\" }\r",
+							"                },\r",
+							"                required: [\r",
+							"                    \"items\", \"total_items\", \"total_pages\", \"first\",\r",
+							"                    \"previous\", \"current\", \"next\", \"last\"\r",
+							"                ]\r",
+							"            }\r",
+							"        },\r",
+							"        required: [\"data\"]\r",
+							"    };\r",
+							"\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/accounts",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://brands-api-qa3.clevercorporate.com/v1/brands/accounts?limit=1&page=5\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\""
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1188 - List all accounts status 0 updated_at:desc",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"List all accounts - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"List all accounts - Schema validation\", function () {\r",
+							"    const statusSchema = {\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            id: { type: \"number\" },\r",
+							"            name: { type: \"string\" },\r",
+							"        },\r",
+							"        required: [\"id\", \"name\"]\r",
+							"    };\r",
+							"\r",
+							"    const accountSchema = {\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            id: { type: \"number\" },\r",
+							"            name: { type: \"string\" },\r",
+							"            login: { type: [\"string\", \"null\"] },\r",
+							"            created_at: { type: \"string\" },\r",
+							"            status: statusSchema\r",
+							"        },\r",
+							"        required: [\"id\", \"name\", \"created_at\", \"status\"]\r",
+							"    };\r",
+							"\r",
+							"    const tiersRegionsSchema = {\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            \"1\": {\r",
+							"                type: \"array\",\r",
+							"                items: {\r",
+							"                    type: \"object\",\r",
+							"                    properties: {\r",
+							"                        id: { type: \"number\" },\r",
+							"                        iso_country: { type: \"string\" },\r",
+							"                        name: { type: \"string\" },\r",
+							"                        continent_code: { type: \"string\" },\r",
+							"                        region_id: { type: \"number\" },\r",
+							"                        tier_id: { type: \"number\" }\r",
+							"                    },\r",
+							"                    required: [\"id\", \"iso_country\", \"name\", \"continent_code\", \"region_id\", \"tier_id\"]\r",
+							"                }\r",
+							"            },\r",
+							"            \"2\": {\r",
+							"                type: \"array\",\r",
+							"                items: {\r",
+							"                    type: \"object\",\r",
+							"                    properties: {\r",
+							"                        id: { type: \"number\" },\r",
+							"                        iso_country: { type: \"string\" },\r",
+							"                        name: { type: \"string\" },\r",
+							"                        continent_code: { type: \"string\" },\r",
+							"                        region_id: { type: \"number\" },\r",
+							"                        tier_id: { type: \"number\" }\r",
+							"                    },\r",
+							"                    required: [\"id\", \"iso_country\", \"name\", \"continent_code\", \"region_id\", \"tier_id\"]\r",
+							"                }\r",
+							"            },\r",
+							"            \"3\": {\r",
+							"                type: \"array\",\r",
+							"                items: {\r",
+							"                    type: \"object\",\r",
+							"                    properties: {\r",
+							"                        id: { type: \"number\" },\r",
+							"                        iso_country: { type: \"string\" },\r",
+							"                        name: { type: \"string\" },\r",
+							"                        continent_code: { type: \"string\" },\r",
+							"                        region_id: { type: \"number\" },\r",
+							"                        tier_id: { type: \"number\" }\r",
+							"                    },\r",
+							"                    required: [\"id\", \"iso_country\", \"name\", \"continent_code\", \"region_id\", \"tier_id\"]\r",
+							"                }\r",
+							"            }\r",
+							"        }\r",
+							"    };\r",
+							"\r",
+							"    const itemsSchema = {\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            id: { type: \"number\" },\r",
+							"            name: { type: \"string\" },\r",
+							"            logo: { type: \"string\" },\r",
+							"            is_favorite: { type: \"number\" },\r",
+							"            is_account_base_url_tracker: { type: \"number\" },\r",
+							"            is_tracker_backoffice_device_code: { type: \"number\" },\r",
+							"            is_tracker_backoffice_vertical: { type: \"number\" },\r",
+							"            updated_at: { type: \"string\" },\r",
+							"            status: statusSchema,\r",
+							"            accounts: {\r",
+							"                type: \"array\",\r",
+							"                items: accountSchema\r",
+							"            },\r",
+							"            tiersRegions: tiersRegionsSchema\r",
+							"        },\r",
+							"        required: [\r",
+							"            \"id\", \"name\", \"logo\", \"is_favorite\", \"is_account_base_url_tracker\",\r",
+							"            \"is_tracker_backoffice_device_code\", \"is_tracker_backoffice_vertical\",\r",
+							"            \"updated_at\", \"status\", \"accounts\", \"tiersRegions\"\r",
+							"        ]\r",
+							"    };\r",
+							"\r",
+							"    const schema = {\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            data: {\r",
+							"                type: \"object\",\r",
+							"                properties: {\r",
+							"                    items: {\r",
+							"                        type: \"array\",\r",
+							"                        items: itemsSchema\r",
+							"                    },\r",
+							"                    total_items: { type: \"number\" },\r",
+							"                    total_pages: { type: \"number\" },\r",
+							"                    first: { type: \"number\" },\r",
+							"                    previous: { type: \"number\" },\r",
+							"                    current: { type: \"number\" },\r",
+							"                    next: { type: \"number\" },\r",
+							"                    last: { type: \"number\" }\r",
+							"                },\r",
+							"                required: [\r",
+							"                    \"items\", \"total_items\", \"total_pages\", \"first\",\r",
+							"                    \"previous\", \"current\", \"next\", \"last\"\r",
+							"                ]\r",
+							"            }\r",
+							"        },\r",
+							"        required: [\"data\"]\r",
+							"    };\r",
+							"\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/accounts?limit=1&page=1&status_ids=1&sort=updated_at:desc",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "status_ids",
+							"value": "1"
+						},
+						{
+							"key": "sort",
+							"value": "updated_at:desc"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://brands-api-qa3.clevercorporate.com/v1/brands/accounts?limit=1&page=1&status_ids=2&sort=qa\" -H  \"accept: application/json\""
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1187-List all accounts accounts   status 1 status_id:desc",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"List all brand's accounts - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"List all brand's accounts - schema test\", function () {\r",
+							"    const schema = {\r",
+							"        \"type\": \"object\",\r",
+							"        \"properties\": {\r",
+							"            \"data\": {\r",
+							"                \"type\": \"array\",\r",
+							"                \"items\": {\r",
+							"                    \"type\": \"object\",\r",
+							"                    \"properties\": {\r",
+							"                        \"id\": { \"type\": \"number\" },\r",
+							"                        \"name\": { \"type\": \"string\" },\r",
+							"                        \"login\": { \"type\": \"string\" },\r",
+							"                        \"status\": {\r",
+							"                            \"type\": \"object\",\r",
+							"                            \"properties\": {\r",
+							"                                \"id\": { \"type\": \"number\" },\r",
+							"                                \"name\": { \"type\": \"string\" }\r",
+							"                            },\r",
+							"                            \"required\": [\"id\", \"name\"]\r",
+							"                        },\r",
+							"                        \"created_at\": { \"type\": \"string\" }\r",
+							"                    },\r",
+							"                    \"required\": [\"id\", \"name\", \"login\", \"status\", \"created_at\"]\r",
+							"                }\r",
+							"            }\r",
+							"        },\r",
+							"        \"required\": [\"data\"]\r",
+							"    };\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/9/accounts?limit=1&page=1&status_ids=1&sort=status_id:desc",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"9",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "status_ids",
+							"value": "1"
+						},
+						{
+							"key": "sort",
+							"value": "status_id:desc"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://brands-api-qa3.clevercorporate.com/v1/brands/25/accounts\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1189 - List all accounts accounts status 2 name:desc",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"List all accounts - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/accounts?limit=1&page=1&status_ids=2&sort=name:desc",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "status_ids",
+							"value": "2"
+						},
+						{
+							"key": "sort",
+							"value": "name:desc"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://brands-api-qa3.clevercorporate.com/v1/brands/accounts?limit=1&page=1&status_ids=2&sort=qa\" -H  \"accept: application/json\""
+			},
+			"response": []
+		},
+		{
+			"name": "List all accounts 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"List all accounts - Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Invalid Request - 400\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Field 'sort' invalid format\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/accounts?limit=1&page=1&status_ids=1&sort=qa",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "status_ids",
+							"value": "1"
+						},
+						{
+							"key": "sort",
+							"value": "qa"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://brands-api-qa3.clevercorporate.com/v1/brands/accounts?limit=1&page=1&status_ids=2&sort=qa\" -H  \"accept: application/json\""
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1190 - List all brand's accounts caps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"List all brand's - Negativo - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiOWQyZmU2Y2NkMDVjNzRkZjBiOWMzNjNhZjcxMjQ1ZDhhNjM0NDYzYzJlMTk5YWFjY2Q5ODdjODQwMmY1YzRkZGEyMDUzODllOGU1YmVmNGEiLCJpYXQiOjE3MzgyMjg5MjMuNTE0NTksIm5iZiI6MTczODIyODkyMy41MTQ1OTUsImV4cCI6MTczODIzMjUyMy40ODY3MDcsInN1YiI6Ijk1Iiwic2NvcGVzIjpbXX0.L2XrHmMH2cbn0kCQbm1v0LTwiHWWRicKFRlaSwoy6iDNd7ypsk8Imi2OYD6nHZTA8ZCfp911usEUuUMURi_gkeuZ3r489dX8S_1qvMywNnIRjkwQt2CSKkCv9Oh0C0H_z-RuVbEB_z0bBfEvWYMU9gv1JcDYg-jg3C-Z_7Oy0-pyq8gwzuC9eFgofDuLIZ025uliSlm0hPsiYjS4y2lD25SzUoVYDOOxyyNJTiAPK7wzEZy0QDoKbwL21USYXY6i9yZYahMU163b1T6B_fQE8hv65tgvLasr_fjc81GaIZCmk6oXcMM9u8rJBy_H3FqUp60dAmqxtIbOqqtHSqSnTw"
+					}
+				],
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/10/accounts/caps",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"10",
+						"accounts",
+						"caps"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://brands-api-qa3.clevercorporate.com/v1/brands/401/accounts/caps\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiOWQyZmU2Y2NkMDVjNzRkZjBiOWMzNjNhZjcxMjQ1ZDhhNjM0NDYzYzJlMTk5YWFjY2Q5ODdjODQwMmY1YzRkZGEyMDUzODllOGU1YmVmNGEiLCJpYXQiOjE3MzgyMjg5MjMuNTE0NTksIm5iZiI6MTczODIyODkyMy41MTQ1OTUsImV4cCI6MTczODIzMjUyMy40ODY3MDcsInN1YiI6Ijk1Iiwic2NvcGVzIjpbXX0.L2XrHmMH2cbn0kCQbm1v0LTwiHWWRicKFRlaSwoy6iDNd7ypsk8Imi2OYD6nHZTA8ZCfp911usEUuUMURi_gkeuZ3r489dX8S_1qvMywNnIRjkwQt2CSKkCv9Oh0C0H_z-RuVbEB_z0bBfEvWYMU9gv1JcDYg-jg3C-Z_7Oy0-pyq8gwzuC9eFgofDuLIZ025uliSlm0hPsiYjS4y2lD25SzUoVYDOOxyyNJTiAPK7wzEZy0QDoKbwL21USYXY6i9yZYahMU163b1T6B_fQE8hv65tgvLasr_fjc81GaIZCmk6oXcMM9u8rJBy_H3FqUp60dAmqxtIbOqqtHSqSnTw\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1191 - List all brand's accounts - Negativo - 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"List all brand's accounts - Negativo - Status code is 404 - Not Found\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Brand not exists\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Brand not exists\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/999/accounts",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"999",
+						"accounts"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://brands-api-qa3.clevercorporate.com/v1/brands/25/accounts\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1192 - Update brand's accounts caps true",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Update brand's accounts caps - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"brand_account_id\": 522,\r\n        \"allow_trackers\": true,\r\n        \"minimum\": 1.5,\r\n        \"maximum\": 2\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/10/accounts/caps",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"10",
+						"accounts",
+						"caps"
+					]
+				},
+				"description": "Generated from cURL: curl -X PATCH \"https://brands-api-qa3.clevercorporate.com/v1/brands/26/accounts/caps\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\" -H  \"Content-Type: application/json\" -d \"[{\\\"brand_account_id\\\":26,\\\"allow_trackers\\\":true,\\\"minimum\\\":0.5,\\\"maximum\\\":1}]\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1193 - Update brand's accounts caps false",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Update brand's accounts caps - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"brand_account_id\": 522,\r\n        \"allow_trackers\": false,\r\n        \"minimum\": 1.5,\r\n        \"maximum\": 2\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/10/accounts/caps",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"10",
+						"accounts",
+						"caps"
+					]
+				},
+				"description": "Generated from cURL: curl -X PATCH \"https://brands-api-qa3.clevercorporate.com/v1/brands/26/accounts/caps\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\" -H  \"Content-Type: application/json\" -d \"[{\\\"brand_account_id\\\":26,\\\"allow_trackers\\\":true,\\\"minimum\\\":0.5,\\\"maximum\\\":1}]\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1194 - Update brand's accounts caps 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Update brand's accounts caps - Negativo - Status code is 400 - Bad Request\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Bad Request - Bad Request\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Bad Request\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"brand_account_id\": 413,\r\n        \"allow_trackers\": true,\r\n        \"minimum\": 1.5,\r\n        \"maximum\": 2\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/001/accounts/caps",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"001",
+						"accounts",
+						"caps"
+					]
+				},
+				"description": "Generated from cURL: curl -X PATCH \"https://brands-api-qa3.clevercorporate.com/v1/brands/26/accounts/caps\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\" -H  \"Content-Type: application/json\" -d \"[{\\\"brand_account_id\\\":26,\\\"allow_trackers\\\":true,\\\"minimum\\\":0.5,\\\"maximum\\\":1}]\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1195 - Update brand's accounts caps - Negativo - 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Update brand's accounts caps - Negativo - Status code is 404 - Not Found\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Brand not exists\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Brand not exists\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"brand_account_id\": 413,\r\n        \"allow_trackers\": true,\r\n        \"minimum\": 1.5,\r\n        \"maximum\": 2\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/999/accounts/caps",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"999",
+						"accounts",
+						"caps"
+					]
+				},
+				"description": "Generated from cURL: curl -X PATCH \"https://brands-api-qa3.clevercorporate.com/v1/brands/26/accounts/caps\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\" -H  \"Content-Type: application/json\" -d \"[{\\\"brand_account_id\\\":26,\\\"allow_trackers\\\":true,\\\"minimum\\\":0.5,\\\"maximum\\\":1}]\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1196 - Create new brand logo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Create new brand logo - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"pm.environment.set(\"url\", jsonData.data.url);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"URL is not null\", function () {\r",
+							"    pm.expect(pm.response.json().data.url).to.not.be.null;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Create new brand logo - schema test\", function () {\r",
+							"    pm.response.to.have.jsonSchema({\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            data: {\r",
+							"                type: \"object\",\r",
+							"                properties: {\r",
+							"                    name: { type: \"string\" },\r",
+							"                    logo: { type: \"string\" },\r",
+							"                    url: { type: \"string\" }\r",
+							"                },\r",
+							"                required: [\"name\", \"logo\", \"url\"]\r",
+							"            }\r",
+							"        },\r",
+							"        required: [\"data\"]\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "brand_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"contentType": "image/png",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1efdfb76-c449-4d60-9831-e1cfa78d2b27",
+								"logo_small_clever.png",
+								"/C:/Users/LN/Downloads/daily.mp4",
+								"/C:/Users/LN/Downloads/logo_small_clever.png",
+								"/C:/Users/LN/Downloads/logo_small_clever.png",
+								"/C:/Users/LN/Downloads/logo_small_clever.png",
+								"/C:/Users/LN/Downloads/logo_small_clever.png",
+								"/C:/Users/LN/Downloads/logo_small_clever.png",
+								"/C:/Users/LN/Downloads/logo_small_clever.png"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/logo",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"logo"
+					]
+				},
+				"description": "### Upload Brand Logo\n\nThis endpoint allows you to upload a brand logo for testing purposes.\n\n#### Request Body\n\n- form-data\n    \n    - `brand_id`: The ID of the brand.\n        \n    - `file`: The logo file to be uploaded.\n        \n\n#### Example\n\n``` plaintext\nbrand_id: 1\nfile: [logo_small_clever.png; type=image/png]\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1197 - Create new brand logo - Negativo 422",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Create new brand logo - Negativo - Status code is 422 - Negativo\", function () {\r",
+							"    pm.response.to.have.status(422);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Create new brand logo - Negativo - Status code is 422 - Negativo - Field 'file' is required\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Field 'file' is required\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "brand_id",
+							"value": "999",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"contentType": "image/png",
+							"type": "file",
+							"src": "logo_small_clever.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/logo",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"logo"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"https://brands-api-qa3.clevercorporate.com/v1/brands/logo\" -H  \"accept: application/json\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\" -H  \"Content-Type: multipart/form-data\" -F \"brand_id=1\" -F \"file=@logo_small_clever.png;type=image/png\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1198 - Create new brand logo - Validate New Hash",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Create new brand logo - Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"pm.environment.set(\"url\", jsonData.data.url);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"URL is not null\", function () {\r",
+							"    pm.expect(pm.response.json().data.url).to.not.be.null;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Create new brand logo - schema test\", function () {\r",
+							"    pm.response.to.have.jsonSchema({\r",
+							"        type: \"object\",\r",
+							"        properties: {\r",
+							"            data: {\r",
+							"                type: \"object\",\r",
+							"                properties: {\r",
+							"                    name: { type: \"string\" },\r",
+							"                    logo: { type: \"string\" },\r",
+							"                    url: { type: \"string\" }\r",
+							"                },\r",
+							"                required: [\"name\", \"logo\", \"url\"]\r",
+							"            }\r",
+							"        },\r",
+							"        required: [\"data\"]\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "brand_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"contentType": "image/png",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1efdfb76-c449-4d60-9831-e1cfa78d2b27",
+								"logo_small_clever.png",
+								"/C:/Users/LN/Downloads/daily.mp4",
+								"/C:/Users/LN/Downloads/logo_small_clever.png",
+								"/C:/Users/LN/Downloads/logo_small_clever.png",
+								"/C:/Users/LN/Downloads/logo_small_clever.png",
+								"/C:/Users/LN/Downloads/logo_small_clever.png",
+								"/C:/Users/LN/Downloads/logo_small_clever.png",
+								"/C:/Users/LN/Downloads/logo_small_clever.png"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/logo",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"logo"
+					]
+				},
+				"description": "### Upload Brand Logo\n\nThis endpoint allows you to upload a brand logo for testing purposes.\n\n#### Request Body\n\n- form-data\n    \n    - `brand_id`: The ID of the brand.\n        \n    - `file`: The logo file to be uploaded.\n        \n\n#### Example\n\n``` plaintext\nbrand_id: 1\nfile: [logo_small_clever.png; type=image/png]\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1199 - Delete brand logo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Delete brand logo - Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/3/logo",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"3",
+						"logo"
+					]
+				},
+				"description": "Generated from cURL: curl -X DELETE \"https://brands-api-qa3.clevercorporate.com/v1/brands/1/logo\" -H  \"accept: */*\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\""
+			},
+			"response": []
+		},
+		{
+			"name": "CT-1179 - Delete brand logo - Negativo - 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Delete brand logo - Not Found- Status code is 404 - Negativo\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Delete brand logo - Negativo\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Brand not exists\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Delete brand logo - schema test\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('message');\r",
+							"    pm.expect(pm.response.json()).to.have.property('errors');\r",
+							"    pm.expect(pm.response.json().message).to.be.a('string');\r",
+							"    pm.expect(pm.response.json().errors).to.be.an('array');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw"
+					}
+				],
+				"url": {
+					"raw": "https://{{BaseUrl}}/v1/brands/9999/logo",
+					"protocol": "https",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v1",
+						"brands",
+						"9999",
+						"logo"
+					]
+				},
+				"description": "Generated from cURL: curl -X DELETE \"https://brands-api-qa3.clevercorporate.com/v1/brands/1/logo\" -H  \"accept: */*\" -H  \"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5TVVXNDYzRVVERFZVRkwzUFhMVlJGRDRUWVQ2V0EzQVZINktQMkg3IiwianRpIjoiMTM1NmY0YTJiNjRjNzZjMjljMjYwYTVlZmE5ZTQ0OThlMmFmZTU3ZWY3MTViODk0ZmY1M2U1NWE4NWU4NTA1YjQ4MmE3ZjVhYzliNDU3ZWYiLCJpYXQiOjE3Mzc2NTE3MDAuNDg5ODg1LCJuYmYiOjE3Mzc2NTE3MDAuNDg5ODg5LCJleHAiOjE3Mzc2NTUzMDAuNDYyMTk1LCJzdWIiOiI5NSIsInNjb3BlcyI6W119.cvT7jQNs13BwR2NaOrlE3JbGXBObtos7x2yEdLlFMoI6ZFUUN_joC2yIFs0vRt81jZeGfoTN7iKDMHCXZtDgirS95zgx_NcFPg1K1fAj_kp6JryityEM0R8tu8WJetvFRg4_yrzHwtzwVCqok6EIvaM0cuIVmZ1bAW3_Boo2vDrenGJ3HG0TsKKXsGx2iUx2O44u2UY7SMm3O9LTo1endrDWjgFDag3GmThAVRBDvkcfR5teIqQQx48rLqU4PvuqElLq2NYPkp0SF3MxD9emiaWP9qMxQRfCCajM86u5ppkBwesd9myaofoIQqlFCMWZ-bu1JoC2UD3dx-e-nBN8Rw\""
+			},
+			"response": []
+		}
+	]
+}
